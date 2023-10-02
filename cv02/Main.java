@@ -37,14 +37,13 @@ public class Main {
         System.out.println();
     }
 
-    //TODO: this no worky?
     private static int binarySearch(int[] a, int value) {
         int m = 0;
         int n = a.length-1;
         while (m <= n) {
             if (value == a[(m+n)/2]) {
                 return (m+n)/2;
-            } else if (value < a[(m+n/2)]) {
+            } else if (value < a[(m+n)/2]) {
                 n = (m+n)/2 - 1;
             } else {
                 m = (m+n)/2 + 1;

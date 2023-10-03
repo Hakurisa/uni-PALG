@@ -58,6 +58,61 @@ public class Utils {
 
     }
 
+    public static void bubbleSort(int[] a) {
+        int n = a.length;
+
+        for (int i = 0; i < n-1; i++) {
+
+            for (int j = 0; j < n-1-i; j++) {
+                if (a[j] > a[j+1]){
+                    int swap = a[j];
+                    a[j] = a[j+1];
+                    a[j+1] = swap;
+                }
+            }
+        }
+    }
+
+    public static void insertionSort(int [] a) {
+        int n = a.length;
+
+        for (int i = 1; i < n; i++) {
+            int value = a[i];
+            int j = i-1;
+            while(j >= 0 && a[j] > value) {
+                a[j+1] = a[j];
+                j--;
+            }
+            if(a[j+1] < i) 
+               a[j+1] = value;
+        }
+
+    }
+
+    public static int[] merge(int[] a, int[] b){
+        int [] c = new int[a.length + b.length];
+
+        int i = 0;
+        int j = 0;
+        int k = 0;
+
+        while(i < a.length && j < b.length) {
+            if(a[i] < b[j]) {
+                c[k++] = a[i++];
+            } else {
+                c[k++] = b[j++]; 
+            }
+        }
+        while(i < a.length) {
+            c[k++] = a[i++];
+        }
+        while(j < b.length) {
+            c[k++] = b[j++];
+        }
+        
+        return c;
+    }
+
     public static void printArray(int[] a) {
         for (int i = 0; i < a.length; i++) {
             System.out.print(a[i] + " ");

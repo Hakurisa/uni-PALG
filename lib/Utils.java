@@ -26,12 +26,18 @@ public class Utils {
         int m = 0;
         int n = a.length-1;
         while (m <= n) {
-            if (value == a[(m+n)/2]) {
-                return (m+n)/2;
-            } else if (value < a[(m+n)/2]) {
-                n = (m+n)/2 - 1;
+            int k = (m+n)/2;
+            if (value == a[k]) {
+                //hledání prvního prvku
+                while(k>=0 && a[k] == value) {
+                    k--;
+                }
+                return k + 1;
+                //return (m+n)/2;
+            } else if (value < a[k]) {
+                n = k - 1;
             } else {
-                m = (m+n)/2 + 1;
+                m = k + 1;
             }
         }
         return -1;
